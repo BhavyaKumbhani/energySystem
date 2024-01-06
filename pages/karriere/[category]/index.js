@@ -14,17 +14,24 @@ import { team } from "../../../data/team";
 import { jobs } from "../../../data";
 import axios from "axios";
 
-// export const getServerSideProps = async (context) => {
-//   const { category, subcategory } = context.query;
-
-//   const url = `${server}/api/karriere/${category}`;
-//   const aux = await fetch(url).then((data) => data?.json());
-//   const jobs = aux.data[0].jobs.filter((item) => item.id == subcategory);
-
-//   return {
-//     props: { jobs },
-//   };
-// };
+export const getServerSideProps = async (context) => {
+  const { category, subcategory, id } = context.query;
+  console.log("server++++++", category, subcategory);
+  // const url = `${server}/api/karriere/${category}`;
+  // console.log("🚀 ~ file: index.js:21 ~ getServerSideProps ~ url:", url)
+  // const aux = await fetch(url).then((data) => data?.json());
+  // const jobs = aux.data[0].jobs.filter((item) => item.id == subcategory);
+  const data = jobs.filter((item) => item.id == category);
+  const jobsData = data?.[0]?.jobs?.filter((item) => item?.id == subcategory);
+  const filterJobs = jobsData?.[0]?.data?.filter((item) => item?.id == id);
+  console.log(
+    "🚀 ~ file: index.js:27 ~ getServerSideProps ~ filterJobs:",
+    filterJobs
+  );
+  return {
+    props: { data: filterJobs },
+  };
+};
 
 // export const getStaticPaths = async (context) => {
 //   const paths = jobs?.length
@@ -42,9 +49,9 @@ import axios from "axios";
 //   return { paths: paths || [], fallback: false };
 // };
 
-export default function Home() {
+export default function Home({ data }) {
   const router = useRouter();
-  const [data, setData] = useState({});
+  // const [data, setData] = useState({});
   const [active, setActive] = useState(1);
 
   const [vorname, setVorname] = useState("");
@@ -188,25 +195,25 @@ export default function Home() {
         setSend(false);
       });
   };
-  const getData = async (url) => {
-    const { category, subcategory, id } = router.query;
+  // const getData = async (url) => {
+  //   const { category, subcategory, id } = router.query;
 
-    // const aux = await fetch(url).then((data) => data?.json());
-    const data = jobs.filter((item) => item.id == category);
-    const jobsData = data?.[0]?.jobs?.filter((item) => item?.id == subcategory);
-    const filterJobs = jobsData?.[0]?.data?.filter((item) => item?.id == id);
-    setData(filterJobs);
-  };
-  let newData;
-  useEffect(() => {
-    console.log("router", router);
-    if (!router.isReady) return;
-    const { category, subcategory, id } = router.query;
-    console.log("routerquery", router.query);
-    newData = { id, category, subcategory };
-    const url = `/api/karriere/${newData.category}`;
-    getData(url);
-  }, [router.isReady]);
+  //   // const aux = await fetch(url).then((data) => data?.json());
+  //   const data = jobs.filter((item) => item.id == category);
+  //   const jobsData = data?.[0]?.jobs?.filter((item) => item?.id == subcategory);
+  //   const filterJobs = jobsData?.[0]?.data?.filter((item) => item?.id == id);
+  //   setData(filterJobs);
+  // };
+  // let newData;
+  // useEffect(() => {
+  //   console.log("router", router);
+  //   if (!router.isReady) return;
+  //   const { category, subcategory, id } = router.query;
+  //   console.log("routerquery", router.query);
+  //   newData = { id, category, subcategory };
+  //   const url = `/api/karriere/${newData.category}`;
+  //   getData(url);
+  // }, [router.isReady]);
 
   return (
     <div className="bg-[#EDEDED] relative">
