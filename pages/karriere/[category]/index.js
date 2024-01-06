@@ -1,17 +1,17 @@
 import React, { useState, useEffect, useRef } from "react";
-import { server } from "../../config";
+import { server } from "../../../config";
 import { useRouter } from "next/router";
-import Navbar from "../../components/Navbar";
-import Header from "../../components/Header";
-import Footer from "../../components/Footer";
-import { forEmail } from "../../config";
-import { forEmailBewerbung } from "../../config";
-import { sendFormFile } from "../../components/global/sendFormFile";
+import Navbar from "../../../components/Navbar";
+import Header from "../../../components/Header";
+import Footer from "../../../components/Footer";
+import { forEmail } from "../../../config";
+import { forEmailBewerbung } from "../../../config";
+import { sendFormFile } from "../../../components/global/sendFormFile";
 import { motion } from "framer-motion";
 import disableScroll from "disable-scroll";
-import CardTeam from "../../components/CardTeam";
-import { team } from "../../data/team";
-import { jobs } from "../../data";
+import CardTeam from "../../../components/CardTeam";
+import { team } from "../../../data/team";
+import { jobs } from "../../../data";
 import axios from "axios";
 
 // export const getServerSideProps = async (context) => {
