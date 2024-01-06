@@ -1,0 +1,49 @@
+.modalformcookie {
+  --ratio: 2.483;
+  position: fixed;
+  width: 29vw;
+  height: -webkit-calc(29vw * --ratio);
+  height: -moz-calc(29vw * --ratio);
+  height: calc(29vw * --ratio);
+  right: 6vw;
+  bottom: 7vh;
+  z-index: 9999;
+  cursor: pointer;
+  background-color: #fff;
+}
+@media (max-width: 915px) and (min-width: 584px) {
+  .modalformcookie {
+    width: 40vw;
+  }
+  .boton-form-cookies {
+    width: 18vw !important;
+    margin-bottom: 4px;
+    font-size: 1.4vw !important;
+  }
+}
+@media (max-width: 583.98px) and (min-width: 490px) {
+  .modalformcookie {
+    width: 45vw !important;
+  }
+  .boton-form-cookies {
+    width: 30vw !important;
+    margin-bottom: 4px;
+    font-size: 2vw !important;
+  }
+}
+@media (max-width: 489px) {
+  .modalformcookie {
+    width: 60vw !important;
+  }
+  .boton-form-cookies {
+    width: 30vw !important;
+    margin-bottom: 4px;
+    font-size: 2.3vw !important;
+  }
+}
+.mostrar {
+  display: block;
+}
+.ocultar {
+  display: none;
+}

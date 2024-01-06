@@ -1,0 +1,38 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@font-face {
+    font-family: "Visby";
+    font-style: normal;
+    font-weight: 300;
+    font-display: swap;
+    src: local("Visby"), url(/fonts/VisbyLight.otf) format("opentype");
+}
+
+@font-face {
+    font-family: "Visby";
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: local("Visby"), url(/fonts/VisbyRegular.otf) format("opentype");
+}
+
+@font-face {
+    font-family: "Visby";
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: local("Visby"), url(/fonts/VisbyBold.otf) format("opentype");
+}
+
+@font-face {
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 900;
+    font-display: swap;
+    src: local("Visby"), url(/fonts/VisbyExtrabold.otf) format("opentype");
+}
+
+body {
+    font-family: "Visby", sans-serif;
+}

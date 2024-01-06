@@ -1,0 +1,491 @@
+body {
+    overflow-x: hidden;
+}
+
+.toogleMenu[data-show="false"] {
+    height: 0;
+    overflow: hidden;
+    transition: all 0.45s ease-in;
+    z-index: -1;
+}
+
+.toogleMenu[data-show="true"] {
+    height: 11.5rem;
+    transition: all 0.45s ease-in;
+    z-index: 100;
+}
+
+.accordion-body {
+    overflow: hidden;
+}
+
+.accordion-body[data-show="false"] {
+    height: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    transition: 500ms all ease-in-out;
+}
+
+.accordion-body[data-show="true"] {
+    height: 9rem;
+    transition: 500ms all ease-in-out;
+}
+
+@media (max-width: 576px) {
+    .accordion-body[data-show="true"] {
+        min-height: 10rem;
+        transition: 500ms all ease-in-out;
+    }
+    .accordion-body[data-show="false"] {
+        min-height: 0;
+        padding-top: 0;
+        padding-bottom: 0;
+        transition: 500ms all ease-in-out;
+    }
+}
+
+.arrow-btn {
+    transition: 500ms all ease-in-out;
+}
+
+.arrow-btn[data-show="true"] {
+    transform: rotateX(180deg);
+    transition: 500ms all ease-in-out;
+}
+
+
+/* Chrome, Safari, Edge, Opera */
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+
+/* Firefox */
+
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+.backLine {
+    position: relative;
+}
+
+.backLine::after {
+    content: "";
+    position: absolute;
+    width: 5rem;
+    height: 2px;
+    background-color: #82ccd5;
+    left: 0;
+    bottom: 0;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+    font-family: "Visby", sans-serif;
+    -webkit-text-fill-color: #000;
+    -webkit-box-shadow: 0 0 0px 0px rgba(255 255 255 / 0%) inset;
+    transition: background-color 5000s ease-in-out 0s;
+}
+
+.image-details {
+    clip-path: polygon(30% 0, 100% 0, 100% 100%, 0% 100%);
+}
+
+.selecter {
+    color: #82ccd5;
+    background-color: #ededed;
+    transition: all 200ms ease-in-out;
+}
+
+.selecter[data-active="true"] {
+    color: white;
+    background-color: #82ccd5;
+}
+
+.slider[data-active="1"] {
+    margin-left: 0%;
+    transition: all 200ms ease-in-out;
+}
+
+.slider[data-active="2"] {
+    margin-left: -100%;
+    transition: all 200ms ease-in-out;
+}
+
+.container_check {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+
+/* Hide the browser's default checkbox */
+
+.container_check input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+
+/* Create a custom checkbox */
+
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 17px;
+    width: 17px;
+    border-radius: 2%;
+    background-color: #fff;
+    border: #0d232f 1px solid;
+}
+
+
+/* On mouse-over, add a grey background color */
+
+.container_check:hover input~.checkmark {
+    background-color: #fff;
+}
+
+
+/* When the checkbox is checked, add a blue background */
+
+.container_check input:checked~.checkmark {
+    background-color: #82ccd5;
+    border: #82ccd5 1px solid;
+}
+
+
+/* Create the checkmark/indicator (hidden when not checked) */
+
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+
+/* Show the checkmark when checked */
+
+.container_check input:checked~.checkmark:after {
+    display: block;
+}
+
+
+/* Style the checkmark/indicator */
+
+.container_check .checkmark:after {
+    left: 5px;
+    top: 1px;
+    width: 5px;
+    height: 10px;
+    border: solid #fff;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+.hamburguer {
+    position: relative;
+    width: 30px;
+    height: 3.5px;
+    background-color: #000;
+    cursor: pointer;
+    z-index: 23;
+}
+
+.hamburguer::after,
+.hamburguer::before {
+    content: "";
+    position: absolute;
+    height: 3.5px;
+    background-color: #000;
+}
+
+.hamburguer::before {
+    right: 0px;
+    width: 30px;
+    top: -8px;
+}
+
+.navigationBar input:checked~.hamburguer {
+    background-color: transparent;
+}
+
+.navigationBar input:checked~.hamburguer::before {
+    top: 0;
+    transform: rotate(45deg);
+    right: 0;
+    width: 30px;
+    transition: 0.3s;
+}
+
+.navigationBar input:checked~.hamburguer::after {
+    top: 0;
+    transform: rotate(-45deg);
+    right: 0;
+    width: 30px;
+    transition: 0.3s;
+}
+
+.togglemenu {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    z-index: -1;
+}
+
+.hamburguer::after {
+    width: 30px;
+    top: 8px;
+    right: 0px;
+}
+
+.nav_container {
+    position: relative;
+    width: 100%;
+    z-index: 300;
+    top: -100%;
+    transition: all 1000ms ease-out;
+}
+
+.nav_container[data-fixed="true"] {
+    position: fixed;
+    width: 100%;
+    top: 0;
+}
+
+.nav_container[data-fixed="true"] .navbar {
+    background-color: #fff;
+}
+
+.item-container {
+    height: 0;
+    overflow: hidden;
+    visibility: hidden;
+    padding-top: 0;
+    transition: all 0.56s cubic-bezier(0.52, 0.16, 0.24, 1);
+}
+
+.item-container[data-open="true"] {
+    height: 100vh;
+    visibility: visible;
+    padding-top: 6.5rem;
+    transition: all 0.56s cubic-bezier(0.52, 0.16, 0.24, 1);
+}
+
+.react-datepicker__day:hover {
+    background-color: #1a323f !important;
+}
+
+.react-datepicker__day--keyboard-selected {
+    background-color: #1a323f !important;
+}
+
+.react-datepicker__day--selected {
+    background-color: #0d232f !important;
+}
+
+.react-datepicker__header {
+    background-color: #0d232f !important;
+}
+
+.react-datepicker__month-container {
+    color: #0d232f !important;
+    font-family: "Qanelas";
+}
+
+.react-datepicker__day-name,
+.react-datepicker__day,
+.react-datepicker__current-month {
+    color: #fff !important;
+    font-family: "Qanelas", sans-serif !important;
+}
+
+.react-datepicker {
+    border: 0px !important;
+}
+
+.react-datepicker__day--outside-month {
+    visibility: hidden !important;
+}
+
+.react-datepicker__navigation-icon {
+    background-color: #67abb4 !important;
+}
+
+.react-datepicker__month {
+    background-color: #67abb4;
+    margin: 0 !important;
+    padding: 2px;
+}
+
+
+/* .react-datepicker__triangle {
+  left: -225px !important;
+  background-color: #e02424 !important;
+} */
+
+.react-datepicker-popper[data-placement^="bottom"] .react-datepicker__triangle::after,
+.react-datepicker-popper[data-placement^="bottom"] .react-datepicker__triangle::before {
+    border-bottom-color: #0d232f !important;
+}
+
+.react-datepicker-popper[data-placement^="top"] .react-datepicker__triangle::after {
+    border-top-color: #67abb4 !important;
+}
+
+.react-datepicker__triangle {
+    left: 0px !important;
+    transform: translateX(1.3vw) !important;
+}
+
+.react-datepicker__navigation-icon::before {
+    border-color: #fff !important;
+}
+
+.react-datepicker__day-names {
+    background-color: #67abb4 !important;
+    border-bottom: 0px !important;
+}
+
+.react-datepicker__day-names {
+    margin-bottom: -9px !important;
+}
+
+.slider-montage {
+    width: 100%;
+    display: flex;
+}
+
+.montage-Slider {
+    overflow: hidden;
+}
+
+.slider-item {
+    opacity: 0;
+    position: absolute;
+    z-index: -1;
+    transition: all ease-in-out 300ms;
+}
+
+.slider-item[data-show="true"] {
+    max-height: max-content;
+    width: 100%;
+    opacity: 100;
+    position: relative;
+    z-index: 10;
+}
+
+.gmap_canvas {
+    overflow: hidden;
+    background: none !important;
+    height: 100%;
+    width: 100%;
+}
+
+.form-switch {
+    padding-left: 0em;
+}
+
+.form-check-input:checked {
+    background-color: #82ccd5;
+    border-color: #82ccd5;
+}
+
+.btn-tooltip::before,
+.btn-tooltip::after {
+    --scale: 0;
+    --arrow-size: 6px;
+    z-index: 9;
+    content: "";
+    position: absolute;
+    top: -0.4rem;
+    left: 50%;
+    transform: translateX(-50%) translateY(var(--translate-y, 0)) scale(var(--scale));
+    transition: 150ms transform;
+    transform-origin: bottom center;
+}
+
+.btn-tooltip::before {
+    --translate-y: calc(-99.5%);
+    content: attr(data-tooltip);
+    font-size: 12px;
+    color: white;
+    border-radius: 4px;
+    text-align: center;
+    padding: 0.4rem 0.5rem;
+    background-color: #82ccd5;
+}
+
+.btn-tooltip::after {
+    content: "";
+    border: var(--arrow-size) solid transparent;
+    border-top-color: #82ccd5;
+    transform-origin: top center;
+}
+
+.btn-tooltip:hover::before,
+.btn-tooltip:hover::after {
+    --scale: 1;
+}
+
+.two-contnet-alignment .image-first {
+    width: 170px;
+    padding-right: 30px;
+    border-right: 1px solid #82ccd5;
+    max-width: 130%;
+
+}
+
+.two-contnet-alignment .sec-first { 
+    width: 170px;
+    height: 70px;
+    padding-right: 36px;
+
+}
+
+.two-contnet-alignment {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+@media (max-width:576px) {
+    .two-contnet-alignment .sec-first {
+        width: 100px;
+                height: auto;
+
+    }
+    .two-contnet-alignment .image-first {
+        width: 100px;
+        padding-right: 8px;
+        border-right: 1px solid #82ccd5;
+        height: 35px;
+    }
+    .two-contnet-alignment {
+        gap: 20px;
+    }
+}
